@@ -6,12 +6,16 @@ module.exports = {
 }
 
 async function create(req, res) {
+    try {
     const story = await Story.findById(req.params.id);
     story.chapters.push(req.body);
-    //ADDED TO SORT BY DATE?
-    // flight.destinations.sort('date');
     await story.save();
     res.redirect(`/stories/${story._id}`);
+    }
+    catch (err) {
+        console.log(err);
+        res.redirect(`/stories/${req.params.id}`);
+    }
 }
 
 async function deleteChapter(req, res) {
