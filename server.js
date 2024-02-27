@@ -30,7 +30,9 @@ app.use(methodOverride('_method'));
 app.use('/', indexRouter);
 app.use('/stories', storiesRouter);
 app.use('/users', usersRouter);
+//CAN REFORMAT TO HAVE ROUTERS DECLARED ABOVE IF YOU WANT
 app.use('/', require('./routes/chapters'));
+app.use('/', require('./routes/comments'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
