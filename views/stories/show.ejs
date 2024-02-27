@@ -16,4 +16,35 @@
         </tr>
     </tbody>
 </table>
+<br><br><h2>Chapters</h2>
+<% if (story.chapters.length) { %>
+    <table>
+        <thead>
+          <tr>
+            <th>Chapter</th>
+            <th>Content</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% let counter = 1 %>
+          <% story.chapters.forEach(function(c) { %>
+            
+            <tr>
+              <td><%= counter %></td>
+              <td><%= c.body %></td>
+              <% counter++ %>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+      <% } else { %>
+        <h5>No Chapters Yet</h5>  
+      <% } %>
+<h2>Continue The Story...</h2>
+<form method="POST" action="/stories/<%= story._id %>/chapters">
+    <label>Content:
+        <input type="string" name="body">
+    </label>
+    <input type="submit" value="Add Chapter">
+</form>
 <%- include('../partials/footer') %>
