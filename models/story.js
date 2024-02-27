@@ -7,6 +7,17 @@ const chapterSchema = new Schema({
         required: true
     }
     // Doesn't need to ref to story, will embed
+    // users id saved as ref
+}, {
+    timestamps: true
+})
+
+const commentSchema = new Schema({
+    body: {
+        type: String,
+        required: true
+    },
+    //users id saved as ref
 }, {
     timestamps: true
 })
@@ -24,6 +35,7 @@ const storySchema = new Schema({
         //ADD ENUM? ['Horror', 'Nostalgic Spooky', 'Comedy Horror', 'Dramatic Horror']
     },
     chapters:[chapterSchema],
+    comments:[commentSchema],
     // Ref: Chapters as an array?
     // Ref: User ID Reference
     // Time Created

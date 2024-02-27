@@ -56,4 +56,39 @@
     </label>
     <input type="submit" value="Add Chapter">
 </form>
+<h2>Comments</h2>
+<% if (story.comments.length) { %>
+    <table>
+        <thead>
+          <tr>
+            <th>Comment</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% story.comments.forEach(function(c) { %>
+            
+            <tr>
+              <td><%= c.body %></td>
+              <td><%= c.createdAt.toLocaleDateString() %></td>
+              <td>
+                 <!-- if (user?._id.equals(r.user)) { -->
+                    <!-- OVERRIDES POST METHOD TO DELETE-->
+                <!-- <form action="/stories/<%= story._id %>/chapters/<%= c._id %>?_method=DELETE" method="POST">
+                    <button type="submit">X</button>
+                </form> -->
+              </td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+      <% } else { %>
+        <h5>No Comments Yet</h5>  
+      <% } %>
+<form method="POST" action="/stories/<%= story._id %>/comments">
+    <label>Content:
+        <input type="string" name="body">
+    </label>
+    <input type="submit" value="Submit">
+</form>
 <%- include('../partials/footer') %>
