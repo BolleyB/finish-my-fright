@@ -14,11 +14,11 @@ async function create(req, res) {
     }
     catch (err) {
         console.log(err);
-        res.redirect(`/stories/${req.params.id}`);
     }
 }
 
 async function deleteChapter(req, res) {
+    try {
     // Need to add the user check
     const story = await Story.findById(req.params.id);
 
@@ -29,4 +29,9 @@ async function deleteChapter(req, res) {
     await story.save();
     // Redirect back to the movie's show view
     res.redirect(`/stories/${story._id}`);
+    }
+    catch (err) { 
+        console.log(err);
+        res.redirect(`/stories/${req.params.id}`);
+    }
   }
