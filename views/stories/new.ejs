@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+<h2>ADD STORY</h2>
+<form action="/stories" method="POST">
+    <label>Title:
+        <input type="String" name="title">
+    </label><br>
+    <label>Body:
+        <input type="String" name="body">
+    </label><br>
+    <label>Theme:
+        <select name="theme">
+            <option value="Horror">Horror</option>
+            <option value="Spooky">Spooky</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Drama">Drama</option>
+        </select>
+    </label><br>
+    <button type="submit">Add Story</button>
+</form>
+<%- include('../partials/footer') %>
