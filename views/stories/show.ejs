@@ -6,6 +6,7 @@
             <th>Title</th>
             <th>Theme</th>
             <th>Body</th>
+            <th>Date</th>
         </tr>
     </thead>
     <tbody>
@@ -13,6 +14,7 @@
             <td><%= story.title%></td>
             <td><%= story.theme%></td>
             <td><%= story.body%></td>
+            <td><%= story.createdAt.toLocaleDateString()%></td>
         </tr>
     </tbody>
 </table>
