@@ -17,6 +17,7 @@
     "gitignore": "^0.7.0",
     "google-auth-library": "^9.6.3",
     "http-errors": "~1.6.3",
+    "method-override": "^3.0.0",
     "mongoose": "^8.2.0",
     "morgan": "~1.9.1",
     "node": "^21.6.2",
