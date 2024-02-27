@@ -5,6 +5,13 @@ const storySchema = new Schema({
     title: {
         type: String,
         required: true
+    },
+    body: {
+        type: String
+    },
+    theme: {
+        type: String,
+        //ADD ENUM? ['Horror', 'Nostalgic Spooky', 'Comedy Horror', 'Dramatic Horror']
     }
     // Ref: Chapters as an array?
     // Ref: User ID Reference
