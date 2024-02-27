@@ -30,7 +30,7 @@ async function create(req, res) {
 
 async function show(req, res) {
     try {
-        const story = await Story.findbyId(req.params.id);
+        const story = await Story.findById(req.params.id);
         res.render('stories/show', { title: 'Story Details', story})
     } catch (err) {
         console.log(err);
