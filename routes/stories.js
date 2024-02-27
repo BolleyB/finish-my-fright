@@ -10,6 +10,7 @@ router.get('/', storiesCtrl.index);
 router.get('/new', storiesCtrl.new);
 
 // GET FOR SHOW SPECIFIC STORY
+router.get('/:id', storiesCtrl.show);
 
 // POST NEW STORY
 router.post('/', storiesCtrl.create);

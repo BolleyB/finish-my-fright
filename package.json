@@ -9,6 +9,7 @@
     "body": "^5.1.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "dotenv": "^16.4.5",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "express-session": "^1.18.0",
@@ -21,6 +22,7 @@
     "node": "^21.6.2",
     "parser": "^0.1.4",
     "passport": "^0.7.0",
-    "passport-google-oauth": "^2.0.0"
+    "passport-google-oauth": "^2.0.0",
+    "vary": "^1.1.2"
   }
 }
