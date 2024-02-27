@@ -66,15 +66,15 @@
           </tr>
         </thead>
         <tbody>
-          <% story.comments.forEach(function(c) { %>
+          <% story.comments.forEach(function(cmt) { %>
             
             <tr>
-              <td><%= c.body %></td>
-              <td><%= c.createdAt.toLocaleDateString() %></td>
+              <td><%= cmt.body %></td>
+              <td><%= cmt.createdAt.toLocaleDateString() %></td>
               <td>
                  <!-- if (user?._id.equals(r.user)) { -->
                     <!-- OVERRIDES POST METHOD TO DELETE-->
-                <form action="/stories/<%= story._id %>/chapters/<%= c._id %>?_method=DELETE" method="POST">
+                <form action="/stories/<%= story._id %>/comments/<%= cmt._id %>?_method=DELETE" method="POST">
                     <button type="submit">X</button>
                 </form>
               </td>
