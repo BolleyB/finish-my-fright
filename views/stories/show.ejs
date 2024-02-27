@@ -32,6 +32,13 @@
             <tr>
               <td><%= counter %></td>
               <td><%= c.body %></td>
+              <td>
+                 <!-- if (user?._id.equals(r.user)) { -->
+                    <!-- OVERRIDES POST METHOD TO DELETE-->
+                <form action="/stories/<%= story._id %>/chapters/<%= c._id %>?_method=DELETE" method="POST">
+                    <button type="submit">X</button>
+                </form>
+              </td>
               <% counter++ %>
             </tr>
           <% }); %>
