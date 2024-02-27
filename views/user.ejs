@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="/stylesheets/userLogin.css" />
+<body>
+  <article>
+    <div class="container">
+      <h2>Sign In</h2>
+      <button class="btn btn-google" onclick="signInWithGoogle()">
+        Sign in with Google
+      </button>
+      <button class="btn btn-email" onclick="signInWithEmail()">
+        Sign in with Email
+      </button>
+      <br> <a class="guest" href="/stories">Continue as Guest</a>
+    </div>
+  </article>
+
+  <!-- JavaScript for sign-in functionality -->
+  <script>
+    function signInWithGoogle() {
+      // Redirect the user to Google sign-in page
+      window.location.href = "https://accounts.google.com";
+    }
+
+    function signInWithEmail() {
+      // Redirect the user to your email sign-in page
+      window.location.href = "email_sign_in.html"; // Replace with your email sign-in page URL
+    }
+  </script>
+</body>
+</html>

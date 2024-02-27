@@ -1,0 +1,52 @@
+body {
+  font-family: chi;
+  background-image: url(https://images.unsplash.com/photo-1511406361295-0a1ff814c0ce?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: transparent;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+  align-items: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+h2 {
+  color: #dd2424;
+  margin-bottom: 20px;
+  padding-bottom: 75px;
+}
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+}
+.btn-google {
+  background-color: #dd2424;
+}
+.btn-email {
+  background-color: #4d0000;
+}
+
+.br {
+  padding-top: 100px;
+}
+
+.guest {
+  color: #1e88e5; /* Change link color */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Make text bold */
+  margin-top: 30px; /* Add margin on top */
+  display: block;
+}
