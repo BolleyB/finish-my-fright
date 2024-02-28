@@ -8,6 +8,7 @@ module.exports = {
 async function create(req, res) {
     try {
     const story = await Story.findById(req.params.id);
+    req.body.user = req.user.id;
     story.chapters.push(req.body);
     await story.save();
     res.redirect(`/stories/${story._id}`);
