@@ -28,7 +28,6 @@ async function redirect(req, res) {
     }
 }
 
-// SHOW ONE IS FOR USER PROFILE!
 async function showOne(req, res) {
     res.render(`userProfiles/profile`, {title: 'User Profile'})
 }
