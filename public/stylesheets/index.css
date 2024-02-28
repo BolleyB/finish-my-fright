@@ -1,15 +1,15 @@
 body {
-  font-family: 'Melted Monster', sans-serif;
+  font-family: "Melted Monster", sans-serif;
   font-size: 42px;
   color: #e62b2b;
-  background-image: url('/images/greyforest.jpg');
+  background-image: url("/images/greyforest.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;
 }
 
 h1 {
-  font-family: 'Melted Monster', sans-serif;
+  font-family: "Melted Monster", sans-serif;
   text-align: center;
   justify-content: center;
   padding-top: 200px;
@@ -20,5 +20,5 @@ a {
   color: #e62b2b;
   justify-content: center;
   text-align: center;
-  padding-left:810px;
+  padding-left: 650px;
 }
