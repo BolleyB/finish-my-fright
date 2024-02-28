@@ -5,7 +5,12 @@ const chapterSchema = new Schema({
     body: {
         type: String,
         required: true
-    }
+    },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+      },
     // Doesn't need to ref to story, will embed
     // users id saved as ref
 }, {
@@ -17,6 +22,11 @@ const commentSchema = new Schema({
         type: String,
         required: true
     },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+      },
     //users id saved as ref
 }, {
     timestamps: true
@@ -36,6 +46,11 @@ const storySchema = new Schema({
     },
     chapters:[chapterSchema],
     comments:[commentSchema],
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+      },
     // Ref: Chapters as an array?
     // Ref: User ID Reference
     // Time Created

@@ -12,4 +12,7 @@ router.get('/redirect', usersCtrl.redirect);
 // GET User Profile
 router.get('/:id', usersCtrl.showOne);
 
+// GET All User Profiles
+router.get('/all', usersCtrl.showAll)
+
 module.exports = router;

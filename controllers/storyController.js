@@ -20,6 +20,8 @@ function newStory(req, res) {
 
 async function create(req, res) {
     req.body.title = req.body.title.trim();
+    //adds user to information
+    req.body.user = req.user.id;
     try {
         const newStory = await Story.create(req.body);
         console.log('Story Created');
