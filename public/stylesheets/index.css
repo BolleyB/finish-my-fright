@@ -1,21 +1,24 @@
 body {
-  font-family: "Melted Monster", sans-serif;
-  color: #e41123;
-  background-image: url(https://images.unsplash.com/photo-1592079927444-590c17e87f28?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  font-family: 'Melted Monster', sans-serif;
+  font-size: 42px;
+  color: #e62b2b;
+  background-image: url('/images/greyforest.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;
 }
 
 h1 {
+  font-family: 'Melted Monster', sans-serif;
   text-align: center;
   justify-content: center;
-  padding-top: 400px;
+  padding-top: 200px;
+  margin-bottom: 200px;
 }
 
 a {
-  color: #3e0e0e;
+  color: #e62b2b;
   justify-content: center;
   text-align: center;
-  padding-left: 310px;
+  padding-left:810px;
 }
