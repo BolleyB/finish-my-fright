@@ -16,6 +16,10 @@
             <td><%= story.body%></td>
             <td><%= story.createdAt.toLocaleDateString()%></td>
         </tr>
+        <tr>
+            <form action="/stories/<%= story._id %>/edit" method="GET"> <button type="submit">Edit Story</button></form>
+        </tr>
+        
     </tbody>
 </table>
 <br><br><h2>Chapters</h2>

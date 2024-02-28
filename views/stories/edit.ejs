@@ -1,0 +1,8 @@
+<%- include('../partials/header') %>
+
+<form action="/stories/<%= story._id %>?_method=PUT" method="POST" autocomplete="off">
+    <input type="text" name="body" value="<%= story.body %>">
+    <button type="submit">Update Story</button>
+  </form>
+  
+<%- include('../partials/footer') %>
