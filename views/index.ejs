@@ -2,6 +2,11 @@
 <link rel="stylesheet" href="/stylesheets/index.css" />
 <body>
   <h1>FINISH MY FRIGHT</h1>
+  <% if (user) { %>
+  <a href="/stories">Continue</a>
+  <a href="/logout"><h5>LOG OUT</h5></a>
+  <% } else { %>
   <a href="/users">Continue</a>
+  <% } %>
 </body>
 <%- include('./partials/footer') %>
