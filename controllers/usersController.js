@@ -13,9 +13,15 @@ async function index(req, res) {
 
 // HOW TO ACCESS USER ID TO REDIRECT TO SPECIFIC USER ?
 async function redirect(req, res) {
-    try { const userId = req.user.id;
-    await res.redirect(`/users/${userId}`)
-    }
+    try { const userId = req.user ? req.user.id : undefined
+        console.log(userId);
+        if (!userId)
+        {
+            res.redirect('/users/all');
+        }
+        else {
+            await res.redirect(`/users/${userId}`)
+    }}
     catch (err)
     {
         res.send(err);
