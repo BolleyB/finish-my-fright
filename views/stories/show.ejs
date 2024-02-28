@@ -47,16 +47,28 @@
             <tr>
               <td><%= counter %></td>
               <td><%= c.body %></td>
+<<<<<<< HEAD
               <!-- ONLY RENDERS IF USER IS OWNER OF STORY OR ORIGINAL POSTER -->
               <td>
               <% if (user) { %>
               <% if (user._id.equals(c.user) || user._id.equals(story.user)) { %>
+=======
+              <!-- WHY DOES THIS STILL RENDER IF FALSE -->
+              <% if (user._id.equals(c.user)) { %>
+              <td>
+>>>>>>> 07ac329 (added in if's for show.ejs to hide delete function for diff users)
                 <form action="/stories/<%= story._id %>/chapters/<%= c._id %>?_method=DELETE" method="POST">
                     <button type="submit">X</button>
                 </form>
                 <% } else { %>
               </td>
+<<<<<<< HEAD
               <% }} %>
+=======
+              <% } else { %>
+                <td></td>
+              <% } %>
+>>>>>>> 07ac329 (added in if's for show.ejs to hide delete function for diff users)
               <% counter++ %>
             </tr>
           <% }); %>
