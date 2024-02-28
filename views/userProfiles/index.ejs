@@ -1,0 +1,7 @@
+<%- include('../partials/header') %>
+<h2>All Users</h2>
+<form action="/users/<%= ${req.user.id} %>" method="GET">
+    <button type="submit">My Profile</button>
+</form>
+<h2><%= user %>Hey</h2>
+<%- include('../partials/footer') %>
