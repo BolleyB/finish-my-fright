@@ -29,6 +29,18 @@ async function redirect(req, res) {
 }
 
 // SHOW ONE IS FOR USER PROFILE
+// HOW TO ACCESS USER ID TO REDIRECT TO SPECIFIC USER ?
+async function redirect(req, res) {
+    try { const userId = req.user.id;
+    await res.redirect(`/users/${userId}`)
+    }
+    catch (err)
+    {
+        res.send(err);
+    }
+}
+
+// SHOW ONE IS FOR USER PROFILE
 async function showOne(req, res) {
     res.render(`userProfiles/profile`, {title: 'User Profile'})
 }
