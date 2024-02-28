@@ -1,4 +1,4 @@
-function showUpdateSuccessMessage() {
+function showUpdateSuccessMsg() {
     const updateSuccessMessage = document.getElementById('updateSuccessMsg');
     updateSuccessMessage.style.display = 'block'; // Show the success message
     setTimeout(() => {
@@ -6,7 +6,7 @@ function showUpdateSuccessMessage() {
     }, 3000);
 }
 
-function showDeleteSuccessMessage() {
+function showDeleteSuccessMsg() {
     const deleteSuccessMessage = document.getElementById('deleteSuccessMsg');
     deleteSuccessMessage.style.display = 'block'; // Show the success message
     setTimeout(() => {
