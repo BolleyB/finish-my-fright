@@ -1,0 +1,46 @@
+/* Center the story title */
+.story-title {
+    text-align: center;
+}
+
+/* Style the story dialog */
+.story-dialog {
+    width: 70%;
+    margin: 0 auto;
+    background-color: #fff; /* Adjust as needed */
+    border: 2px solid #000; /* Adjust as needed */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Style the story table */
+.story-table {
+    width: 100%;
+}
+
+/* Style the chapter list */
+.chapter-list {
+    float: left;
+    width: 20%;
+    padding: 20px;
+}
+
+.chapter-list h2 {
+    text-align: center;
+}
+
+.chapter-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.chapter-list li {
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.chapter-list li:hover {
+    background-color: #f0f0f0;
+}
+
+
