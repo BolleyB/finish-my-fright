@@ -12,9 +12,11 @@
   <article>
     <div class="container">
       <h2>Sign In</h2>
-      <button class="btn btn-google" onclick="signInWithGoogle()">
-        Sign in with Google
-      </button>
+      <% if (user) { %>
+      <a href="/logout">LOG OUT</a>
+      <% } else { %>
+      <a href="/auth/google" class="login">LOG IN WITH GOOGLE</a>
+        <% } %>
       <button class="btn btn-email" onclick="signInWithEmail()">
         Sign in with Email
       </button>
