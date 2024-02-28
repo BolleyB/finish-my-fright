@@ -1,3 +1,70 @@
 <%- include('../partials/header') %>
-<h2>User Profile Test</h2>
+<h2>
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>User Profile</title>
+      <link rel="stylesheet" href="/stylesheets/profile.css" />
+      <!-- Link to external CSS file -->
+    </head>
+    <body>
+      <div class="container">
+        <img
+          src="/images/bloodystump.jpg"
+          alt="Profile Picture"
+          class="profile-image"
+        />
+        <h2 class="name">John Doe</h2>
+        <p class="about-me">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in
+          magna id nisl venenatis tristique.
+        </p>
+        <div class="points">
+          <h3>Stats</h3>
+          <div class="points-container">
+            <div class="points-title">Points <br />100</div>
+            <div class="points-title">Followers <br />500</div>
+            <div class="points-title">Likes <br />1000</div>
+          </div>
+        </div>
+        <div class="stories">
+          <h3 class="head">Stories</h3>
+          <div class="view-stories">
+            <div>story</div>
+            <br />
+            <div>story</div>
+            <br />
+            <div>story</div>
+            <br />
+            <div>story</div>
+            <br />
+            <div>story</div>
+            <br />
+            <div>story</div>
+            <br />
+            <div>story</div>
+            <br />
+            <div>story</div>
+            <br />
+          </div>
+        </div>
+
+        <div class="activity">
+          <h3>Activity</h3>
+          <div class="activity-item">
+            <p>Posted a new story</p>
+            <p class="timestamp">2 hours ago</p>
+          </div>
+          <div class="activity-item">
+            <p>Commented on a post</p>
+            <p class="timestamp">3 hours ago</p>
+          </div>
+          <!-- Add more activity items as needed -->
+        </div>
+      </div>
+    </body>
+  </html>
+</h2>
 <%- include('../partials/footer') %>
