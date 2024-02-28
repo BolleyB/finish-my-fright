@@ -19,9 +19,13 @@
         </tr>
         <tr>
             <td colspan="4">
+              <!-- ONLY RENDERS IF USER IS OWNER OF STORY OR ORIGINAL POSTER -->
+              <% if (user) { %>
+                <% if (user._id.equals(story.user)) { %>
                 <form action="/stories/<%= story._id %>/edit" method="GET">
                     <button type="submit">Edit Story</button>
                 </form>
+                <% } else {}}%>
             </td>
         </tr>
         
@@ -43,16 +47,16 @@
             <tr>
               <td><%= counter %></td>
               <td><%= c.body %></td>
-              <!-- WHY DOES THIS STILL RENDER IF FALSE -->
-              <% if (user._id.equals(c.user)) { %>
+              <!-- ONLY RENDERS IF USER IS OWNER OF STORY OR ORIGINAL POSTER -->
               <td>
+              <% if (user) { %>
+              <% if (user._id.equals(c.user) || user._id.equals(story.user)) { %>
                 <form action="/stories/<%= story._id %>/chapters/<%= c._id %>?_method=DELETE" method="POST">
                     <button type="submit">X</button>
                 </form>
+                <% } else { %>
               </td>
-              <% } else { %>
-                <td></td>
-              <% } %>
+              <% }} %>
               <% counter++ %>
             </tr>
           <% }); %>
@@ -84,11 +88,13 @@
               <td><%= cmt.body %></td>
               <td><%= cmt.createdAt.toLocaleDateString() %></td>
               <td>
-                 <!-- if (user?._id.equals(r.user)) { -->
-                    <!-- OVERRIDES POST METHOD TO DELETE-->
+              <!-- ONLY RENDERS IF USER IS OWNER OF STORY OR ORIGINAL POSTER -->
+              <% if (user) { %>
+              <% if (user._id.equals(cmt.user) || user._id.equals(story.user)) { %>
                 <form action="/stories/<%= story._id %>/comments/<%= cmt._id %>?_method=DELETE" method="POST">
                     <button type="submit">X</button>
                 </form>
+              <% } else {}} %>
               </td>
             </tr>
           <% }); %>
