@@ -1,0 +1,103 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 50px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.name {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 24px;
+  color: #333;
+  justify-content: center;
+}
+
+.about-me {
+  margin-top: 20px;
+  color: #666;
+}
+
+.activity {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+.activity-item {
+  border-left: 2px solid #ccc;
+  padding-left: 10px;
+  margin-bottom: 20px;
+}
+
+.activity-item:last-child {
+  margin-bottom: 0;
+}
+
+.activity-item .timestamp {
+  color: #999;
+  font-size: 12px;
+}
+
+.stories {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.points {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.points-container {
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+h3.head {
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+div.points-title {
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 30px;
+}
+
+p.about-me {
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+div.view-stories {
+  border: 2px solid black;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: first baseline;
+}
