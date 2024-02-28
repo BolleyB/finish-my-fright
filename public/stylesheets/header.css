@@ -2,7 +2,7 @@
 .topnav {
   background-color: transparent;
   overflow: hidden;
-  width: 14%; /*width of topnav bar */
+  width: 0%; /*width of topnav bar */
   margin: 1 auto; /* center navigation bar horizontally */
   float: left; /* align nav bar to left of page */
   border-radius: 10px; /* round the nav bar corners */
