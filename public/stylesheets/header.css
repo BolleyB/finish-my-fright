@@ -2,26 +2,31 @@
 .topnav {
   background-color: #020000;
   overflow: hidden;
+  width: 14%; /*width of topnav bar */
+  margin: 0 auto; /* center navigation bar horizontally */
+  float: left; /* align nav bar to left of page */
+  border-radius: 10px; /* round the nav bar corners */
 }
 
 /* Style the links inside the navigation bar */
 .topnav a {
+  font-family: "Melted Monster", sans-serif;
   float: left;
   color: #f2f2f2;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 18px;
 }
 
 /* Change the color of links on hover */
 .topnav a:hover {
-  background-color: #ddd;
+  background-color: #e62b2b;
   color: black;
 }
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: #0d290c;
+  background-color: rgb(140, 18, 18);
   color: white;
 }

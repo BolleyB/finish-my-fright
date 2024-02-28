@@ -6,7 +6,6 @@ const logger = require('morgan');
 
 const methodOverride = require('method-override');
 
-
 require('dotenv').config();
 require('./config/database');
 
@@ -27,10 +26,34 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 
+// Middleware to set currentPage variable
+app.use(function(req, res, next) {
+  // Extract the path from the request URL
+  const path = req.path;
+
+  // Set currentPage based on the path
+  let currentPage;
+  if (path === '/') {
+    currentPage = 'home';
+  } else if (path === '/stories/new') {
+    currentPage = 'create';
+  } else if (path === '/stories') {
+    currentPage = 'stories';
+  } else {
+    currentPage = 'other'; // Set to 'other' if path doesn't match any known routes
+  }
+
+  // Set currentPage in locals to make it available in templates
+  res.locals.currentPage = currentPage;
+
+  // Call the next middleware
+  next();
+});
+
+// Route handlers
 app.use('/', indexRouter);
 app.use('/stories', storiesRouter);
 app.use('/users', usersRouter);
-//CAN REFORMAT TO HAVE ROUTERS DECLARED ABOVE IF YOU WANT
 app.use('/', require('./routes/chapters'));
 app.use('/', require('./routes/comments'));
 

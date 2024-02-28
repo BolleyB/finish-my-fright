@@ -1,4 +1,13 @@
-<link rel="stylesheet" href="/stylesheets/userLogin.css" />
+<%- include('./partials/header') %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In</title>
+  <link rel="stylesheet" href="/stylesheets/userLogin.css" />
+</head>
 <body>
   <article>
     <div class="container">
@@ -16,14 +25,20 @@
   <!-- JavaScript for sign-in functionality -->
   <script>
     function signInWithGoogle() {
-      // Redirect the user to Google sign-in page
-      window.location.href = "https://accounts.google.com";
+      // Construct the URL for Google OAuth 2.0 authentication
+      const redirectURI = encodeURIComponent("YOUR_REDIRECT_URI");
+      const scope = encodeURIComponent("openid email profile");
+      const url = `https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=YOUR_CLIENT_ID&redirect_uri=${redirectURI}&scope=${scope}&prompt=select_account`;
+  
+      // Redirect the user to the Google OAuth 2.0 authentication page
+      window.location.href = url;
     }
-
+  
     function signInWithEmail() {
       // Redirect the user to your email sign-in page
       window.location.href = "email_sign_in.html"; // Replace with your email sign-in page URL
     }
   </script>
+  
 </body>
 </html>

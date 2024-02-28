@@ -50,3 +50,9 @@ h2 {
   margin-top: 30px; /* Add margin on top */
   display: block;
 }
+
+/* Font styles for navigation links */
+.topnav a {
+  font-family: 'Melted Monster', sans-serif; /* Specify the font family */
+  color: #ab0606;
+}
