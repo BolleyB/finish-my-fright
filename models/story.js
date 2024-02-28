@@ -22,6 +22,11 @@ const commentSchema = new Schema({
         type: String,
         required: true
     },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+      },
     //users id saved as ref
 }, {
     timestamps: true
