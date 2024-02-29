@@ -45,7 +45,8 @@ async function deleteComment(req, res) {
 
   async function updateUser(id, commentId) {
     try {
-        await User.updateOne({ _id: id }, { $push: { 'interaction': { comments: commentId } } });
+        // SET WORKS, BUT PUSH DOES NOTHING
+        await User.updateOne({ _id: id }, { $push: { interaction: commentId } })
     }
     catch (err) {
         console.log(err)

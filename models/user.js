@@ -10,11 +10,11 @@ const profileSchema = new Schema({
 })
 
 const interactionSchema = new Schema({
-  stories: { type: Schema.Types.ObjectId,
+  stories: [{ type: Schema.Types.ObjectId,
   ref: 'Story',
-  required: true },
-  comments: String,
-  chapters: String
+  required: true }],
+  comments: [String],
+  chapters: [String]
 }, { 
   timestamps: true
 });
@@ -28,7 +28,7 @@ const userSchema = new Schema({
   email: String,
   avatar: String,
   profile: profileSchema,
-  interaction: [interactionSchema]
+  interaction: interactionSchema,
 }, {
   timestamps: true
 });
