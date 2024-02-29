@@ -48,7 +48,7 @@ async function showOne(req, res) {
 
 // SHOW ALL IS FOR ALL PROFILES
 async function showAll(req, res) {
-    res.render(`userProfiles/index`, {title: 'All User Profiles'})
+    res.render(`userProfiles/index`)
 }
 
 async function update(req, res) {
@@ -71,7 +71,7 @@ async function update(req, res) {
             { new: true }
         );
 
-        res.render('userProfiles/profile', { profUser: updatedUser });
+        await res.redirect(`/users/${updatedUser.id}`)
     } catch (err) {
         console.log(err);
     }
