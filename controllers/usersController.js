@@ -29,7 +29,18 @@ async function redirect(req, res) {
 }
 
 async function showOne(req, res) {
-    res.render(`userProfiles/profile`, {title: 'User Profile'})
+    try {
+        const userId = req.user ? req.user.id : undefined
+        if (!userId)
+        {
+            res.redirect('/users/all');
+        }
+        else {
+        res.render(`userProfiles/profile`, {title: 'User Profile'})
+        }
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 // SHOW ALL IS FOR ALL PROFILES

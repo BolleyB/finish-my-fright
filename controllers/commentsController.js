@@ -1,4 +1,5 @@
 const Story = require('../models/story');
+const User = require('../models/user');
 
 module.exports = {
     create,
@@ -10,6 +11,11 @@ async function create(req, res) {
     const story = await Story.findById(req.params.id);
     req.body.user = req.user.id;
     story.comments.push(req.body);
+
+    // GRABS COMMENT ID AND UPDATES USER
+    const newCommentId = story.comments[story.comments.length - 1]._id;
+    await updateUser(req.user.id, newCommentId);
+
     await story.save();
     res.redirect(`/stories/${req.params.id}`);
     }
@@ -36,3 +42,12 @@ async function deleteComment(req, res) {
         res.redirect(`/stories/${req.params.id}`);
     }
   }
+
+  async function updateUser(id, commentId) {
+    try {
+        await User.updateOne({ _id: id }, { $push: { 'interaction': { comments: commentId } } });
+    }
+    catch (err) {
+        console.log(err)
+    }
+}
