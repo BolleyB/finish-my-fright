@@ -9,15 +9,24 @@
     <div class="card">
       <div class="card-header">
         <img
-          src="https://pbs.twimg.com/media/F6WaQSOXwAA3Q-E.jpg"
+          src="<%= profUser.avatar %>"
           alt="Profile Image"
           class="profile-img"
         />
       </div>
       <div class="card-body">
-        <p class="name">Your Name</p>
-        <a href="#" class="mail">yourname@amail.com</a>
-        <p class="About Me">I like Turtles....</p>
+        <% if(profUser.profile.displayName) {%>
+        <p class="name"><%= profUser.profile.displayName %></p>
+        <% } else {%>
+        <p class="name"><%= profUser.name %></p>
+        <% } %>
+        <a href="#" class="mail"><%= profUser.email %></a>
+        <% if(profUser.profile.aboutMe) {%>
+        <p class="About Me"><%= profUser.profile.aboutMe %></p>
+        <% } else { %>
+            <!-- CURRENTLY FILLER TEXT-->
+            <p class="About Me">I like Turtles....</p>
+        <% } %>
       </div>
 
       <div class="social-links">
@@ -31,37 +40,51 @@
         <p class="count">
           <span>120k</span> Followers | <span>10k</span> Following
         </p>
+        <% if (user._id.equals(profUser.id)) { %>
         <!-- Profile edit button -->
         <button id="editProfileBtn">Edit Profile</button>
         <!-- Edit form -->
         <div id="editForm" style="display: none">
           <h2>Edit Profile</h2>
-          <form id="profileEditForm">
+          <form id="profileEditForm" action="/users/<%= user._id %>?_method=PUT" method="POST" autocomplete="off">
             <label for="editName">Name:</label>
             <input
               type="text"
               id="editName"
-              name="editName"
-              value="Your Name"
+              name="displayName"
+              <% if(profUser.profile.displayName) {%>
+                value="<%= profUser.profile.displayName %>"
+              <% } else { %>
+                value="Your Name"
+                <% } %>
             />
 
             <label for="editEmail">Email:</label>
             <input
               type="email"
               id="editEmail"
-              name="editEmail"
-              value="yourname@amail.com"
+              name="displayEmail"
+              <% if(profUser.profile.displayEmail) {%>
+                value="<%= profUser.profile.displayEmail %>"
+              <% } else { %>
+                value="Yourname@email.com"
+                <% } %>
             />
 
             <label for="editJob">About:</label>
             <input
               type="text"
               id="editJob"
-              name="editJob"
-              value="Developer | Designer"
+              name="aboutMe"
+              <% if(profUser.profile.aboutMe) {%>
+                value="<%= profUser.profile.aboutMe %>"
+            <% } else { %>
+                value="Developer | Designer"
+            <% } %>
             />
-
+            
             <button type="submit">Save Changes</button>
+            <% } %>
           </form>
         </div>
       </div>
@@ -88,16 +111,16 @@
       });
 
       // Prevent form submission (for demonstration)
-      document
-        .getElementById("profileEditForm")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
-          // Here you can handle form submission, such as sending data to the server
-          // For now, we'll just hide the edit form after submission
-          editForm.style.display = "none";
-          // Show the edit profile button again
-          editProfileBtn.style.display = "block";
-        });
+    //   document
+    //     .getElementById("profileEditForm")
+    //     .addEventListener("submit", function (event) {
+    //       event.preventDefault();
+    //       // Here you can handle form submission, such as sending data to the server
+    //       // For now, we'll just hide the edit form after submission
+    //       editForm.style.display = "none";
+    //       // Show the edit profile button again
+    //       editProfileBtn.style.display = "block";
+    //     });
     </script>
   </body>
 </html>
