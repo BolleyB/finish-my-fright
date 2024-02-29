@@ -62,10 +62,10 @@ async function update(req, res) {
 }
 
 async function updateUser(id, storyId) {
-    try {
-        await User.updateOne({ _id: id }, { $push: { 'interaction': { stories: storyId } } });
+        try {
+            await User.interaction.updateOne({ _id: id }, { $push: { stories: storyId } });
+        }
+        catch (err) {
+            console.log(err)
+        }
     }
-    catch (err) {
-        console.log(err)
-    }
-}

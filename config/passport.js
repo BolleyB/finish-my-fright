@@ -24,6 +24,8 @@ passport.use(new GoogleStrategy(
                     aboutMe: 'About Me',
                     displayEmail: profile.emails[0].value,
                 },
+                interaction: {
+                }
             });
             return cb(null,user);
         }   catch (err) {
