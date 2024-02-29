@@ -31,13 +31,15 @@ async function redirect(req, res) {
 
 async function showOne(req, res) {
     try {
-        const userId = req.user ? req.user.id : undefined
+        const userId = req.params.id ? req.params.id : undefined
         if (!userId)
         {
             res.redirect('/users/all');
         }
         else {
-        res.render(`userProfiles/profile`, {title: 'User Profile'})
+        const profUser = await User.findById(userId);
+        console.log()
+        res.render(`userProfiles/profile`, {profUser})
         }
     } catch (err) {
         console.log(err);
