@@ -31,15 +31,13 @@ async function redirect(req, res) {
 
 async function showOne(req, res) {
     try {
-        const userId = req.params.id ? req.params.id : undefined
+        const userId = req.user ? req.user.id : undefined
         if (!userId)
         {
             res.redirect('/users/all');
         }
         else {
-        const profUser = await User.findById(userId);
-        console.log()
-        res.render(`userProfiles/profile`, {profUser})
+        res.render(`userProfiles/profile`, {title: 'User Profile'})
         }
     } catch (err) {
         console.log(err);
@@ -48,31 +46,5 @@ async function showOne(req, res) {
 
 // SHOW ALL IS FOR ALL PROFILES
 async function showAll(req, res) {
-    res.render(`userProfiles/index`)
-}
-
-async function update(req, res) {
-    try {
-        const updateFields = {};
-        
-        if (req.body.displayName) {
-            updateFields['profile.displayName'] = req.body.displayName;
-        }
-        if (req.body.displayEmail) {
-            updateFields['profile.email'] = req.body.displayEmail;
-        }
-        if (req.body.aboutMe) {
-            updateFields['profile.aboutMe'] = req.body.aboutMe;
-        }
-
-        const updatedUser = await User.findByIdAndUpdate(
-            req.user.id,
-            { $set: updateFields },
-            { new: true }
-        );
-
-        await res.redirect(`/users/${updatedUser.id}`)
-    } catch (err) {
-        console.log(err);
-    }
+    res.render(`userProfiles/index`, {title: 'All User Profiles'})
 }
