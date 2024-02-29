@@ -16,7 +16,7 @@ router.get('/', usersCtrl.index);
 // GET User Profile
 router.get('/:id', usersCtrl.showOne);
 
-// PUT FOR UPDATING STORY
-router.put('/:id', ensureLoggedIn, usersCtrl.update);
+// GET All User Profiles
+router.get('/all', usersCtrl.showAll)
 
 module.exports = router;

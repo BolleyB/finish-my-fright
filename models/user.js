@@ -27,7 +27,7 @@ const userSchema = new Schema({
   },
   email: String,
   avatar: String,
-  profile: [profileSchema],
+  profile: profileSchema,
   interaction: [interactionSchema]
 }, {
   timestamps: true
