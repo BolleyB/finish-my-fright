@@ -1,14 +1,18 @@
 const Story = require('../models/story');
 
 module.exports = {
-    index,
-    new: newStory,
-    create,
-    show,
-    edit,
-    update
-}
+  getAllStories: async (req, res) => {
+    try {
+      const stories = await Story.find();
+      res.json(stories);
+    } catch (error) {
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  },
+  // Implement other controller functions for CRUD operations if needed
+};
 
+// Your existing controller functions
 async function index(req, res) {
     const stories = await Story.find({});
     res.render('stories/index', {title: 'Stories', stories});
@@ -58,3 +62,13 @@ async function update(req, res) {
         console.log(err);
     }
 }
+
+module.exports = {
+    index,
+    new: newStory,
+    create,
+    show,
+    edit,
+    update
+}
+
