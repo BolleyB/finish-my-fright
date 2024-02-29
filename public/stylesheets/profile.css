@@ -1,103 +1,217 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  transition: 0.3s;
 }
 
-.container {
-  max-width: 800px;
-  margin: 50px auto;
+body {
+  font-family: "Montserrat";
+  background-color: #b8b6b6;
+  color: #fdfdfd;
   padding: 50px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  justify-content: center;
-  align-items: center;
+  padding-top: 50px;
 }
 
-.profile-image {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  margin: 0 auto;
-  align-items: center;
-  justify-content: center;
-}
-
-.name {
+.card {
+  max-width: 250px;
+  margin: 150px auto 0;
+  background-color: #42515a;
+  box-shadow: 0 10px 90px #00000024;
   text-align: center;
-  margin-top: 20px;
+  font-size: 20px;
+  border-radius: 15px;
+}
+
+.card .card-header {
+  display: flex; /* Use flexbox to center items horizontally */
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+  height: auto; /* Remove fixed height */
+}
+
+.card .card-body {
+  padding: 10px 40px;
+}
+
+.card .card-body .name {
+  margin-top: 30px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #c74385;
+}
+
+.card .card-body .name:hover {
+  margin-top: 30px;
   font-size: 24px;
-  color: #333;
-  justify-content: center;
+  color: #d885af;
 }
 
-.about-me {
-  margin-top: 20px;
-  color: #666;
+.card .card-body .mail {
+  font-size: 14px;
+  color: #c2bdbd;
 }
 
-.activity {
+.card .card-body .mail:hover {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.card .card-body .job {
+  margin-top: 10px;
+  font-size: 14px;
+}
+.card .social-links {
   display: flex;
-  flex-direction: column;
-  margin-top: 40px;
   justify-content: center;
   align-items: center;
+  margin-top: 30px;
 }
 
-.activity-item {
-  border-left: 2px solid #ccc;
-  padding-left: 10px;
-  margin-bottom: 20px;
-}
-
-.activity-item:last-child {
-  margin-bottom: 0;
-}
-
-.activity-item .timestamp {
-  color: #999;
-  font-size: 12px;
-}
-
-.stories {
-  margin-top: 40px;
-  text-align: center;
-}
-
-.points {
-  margin-top: 20px;
-  text-align: center;
-}
-
-.points-container {
-  justify-content: space-between;
-  display: flex;
-  flex-direction: row;
+.card .social-links .social-icon {
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  background-color: #c74385;
+  color: #ffffff;
+  font-size: 20px;
+  border-radius: 100%;
+  text-decoration: none;
+  margin: 0 13px 30px 0;
 }
 
-h3.head {
-  border: 2px solid black;
-  border-radius: 5px;
+.card .social-links .social-icon:last-child {
+  margin-right: 0;
 }
 
-div.points-title {
-  border: 2px solid black;
-  border-radius: 5px;
-  padding: 30px;
+.card .social-links .social-icon:hover {
+  background-color: #d885af;
+  height: 50px;
+  width: 50px;
+  text-decoration: none;
 }
 
-p.about-me {
-  border: 2px solid black;
-  border-radius: 5px;
-  padding: 10px;
+.card .card-footer {
+  background-color: #c74385;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  padding: 20px 0 20px 0;
 }
 
-div.view-stories {
-  border: 2px solid black;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: first baseline;
+.card .card-footer .count {
+  font-size: 14px;
+}
+
+@media screen and (max-width: 575px) {
+  .card {
+    width: 96%;
+  }
+
+  .card .card-body {
+    padding: 10px 20px;
+  }
+}
+
+/* Style for the modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button#editProfileBtn {
+  border-radius: 20px; /* Adjust the border-radius to make the button more round */
+  padding: 10px 20px; /* Add padding to improve button appearance */
+  background-color: #c74385; /* Background color */
+  color: #ffffff; /* Text color */
+  border: none; /* Remove border */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+  padding: 3px;
+}
+
+button#editProfileBtn:hover {
+  background-color: #d885af; /* Change background color on hover */
+}
+
+/* Adjust layout and positioning to prevent profile image from overlapping text */
+.card .card-header {
+  text-align: center; /* Center align content within the card header */
+}
+
+.card .card-header .profile-img {
+  max-width: 100px;
+  height: auto;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 5px;
+  padding-top: 20px;
+  margin-top: 20px;
+}
+
+.card .card-body {
+  text-align: center; /* Center align content within the card body */
+}
+
+.card .card-footer {
+  text-align: center; /* Center align content within the card footer */
+}
+
+/* Style for the modal content */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+  font-size: 16px; /* Adjust font size for responsiveness */
+  text-align: center; /* Center align text */
+}
+
+/* Style for the close button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }

@@ -1,70 +1,103 @@
 <%- include('../partials/header') %>
-<h2>
-  <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>User Profile</title>
-      <link rel="stylesheet" href="/stylesheets/profile.css" />
-      <!-- Link to external CSS file -->
-    </head>
-    <body>
-      <div class="container">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link href="/stylesheets/profile.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="card">
+      <div class="card-header">
         <img
-          src="/images/bloodystump.jpg"
-          alt="Profile Picture"
-          class="profile-image"
+          src="https://pbs.twimg.com/media/F6WaQSOXwAA3Q-E.jpg"
+          alt="Profile Image"
+          class="profile-img"
         />
-        <h2 class="name">John Doe</h2>
-        <p class="about-me">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in
-          magna id nisl venenatis tristique.
-        </p>
-        <div class="points">
-          <h3>Stats</h3>
-          <div class="points-container">
-            <div class="points-title">Points <br />100</div>
-            <div class="points-title">Followers <br />500</div>
-            <div class="points-title">Likes <br />1000</div>
-          </div>
-        </div>
-        <div class="stories">
-          <h3 class="head">Stories</h3>
-          <div class="view-stories">
-            <div>story</div>
-            <br />
-            <div>story</div>
-            <br />
-            <div>story</div>
-            <br />
-            <div>story</div>
-            <br />
-            <div>story</div>
-            <br />
-            <div>story</div>
-            <br />
-            <div>story</div>
-            <br />
-            <div>story</div>
-            <br />
-          </div>
-        </div>
+      </div>
+      <div class="card-body">
+        <p class="name">Your Name</p>
+        <a href="#" class="mail">yourname@amail.com</a>
+        <p class="About Me">I like Turtles....</p>
+      </div>
 
-        <div class="activity">
-          <h3>Activity</h3>
-          <div class="activity-item">
-            <p>Posted a new story</p>
-            <p class="timestamp">2 hours ago</p>
-          </div>
-          <div class="activity-item">
-            <p>Commented on a post</p>
-            <p class="timestamp">3 hours ago</p>
-          </div>
-          <!-- Add more activity items as needed -->
+      <div class="social-links">
+        <a href="#" class="fab fa-instagram social-icon"></a>
+        <a href="#" class="fab fa-twitter social-icon"></a>
+        <a href="#" class="fab fa-youtube social-icon"></a>
+        <a href="#" class="fab fa-reddit social-icon"></a>
+      </div>
+
+      <div class="card-footer">
+        <p class="count">
+          <span>120k</span> Followers | <span>10k</span> Following
+        </p>
+        <!-- Profile edit button -->
+        <button id="editProfileBtn">Edit Profile</button>
+        <!-- Edit form -->
+        <div id="editForm" style="display: none">
+          <h2>Edit Profile</h2>
+          <form id="profileEditForm">
+            <label for="editName">Name:</label>
+            <input
+              type="text"
+              id="editName"
+              name="editName"
+              value="Your Name"
+            />
+
+            <label for="editEmail">Email:</label>
+            <input
+              type="email"
+              id="editEmail"
+              name="editEmail"
+              value="yourname@amail.com"
+            />
+
+            <label for="editJob">About:</label>
+            <input
+              type="text"
+              id="editJob"
+              name="editJob"
+              value="Developer | Designer"
+            />
+
+            <button type="submit">Save Changes</button>
+          </form>
         </div>
       </div>
-    </body>
-  </html>
-</h2>
-<%- include('../partials/footer') %>
+    </div>
+
+    <!-- Link to the JavaScript file -->
+    <script>
+      // Add event listener to the edit profile button
+      editProfileBtn.addEventListener("click", function () {
+        // Show the edit form
+        editForm.style.display = "block";
+        // Hide the edit profile button
+        editProfileBtn.style.display = "none";
+      });
+
+      // Preset photo selection
+      var presetPhotos = document.querySelectorAll(".preset-photo");
+      presetPhotos.forEach(function (photo) {
+        photo.addEventListener("click", function () {
+          // Set the selected photo as the value of the editPhoto input field
+          var selectedPhotoSrc = this.getAttribute("data-src");
+          document.getElementById("editPhoto").value = selectedPhotoSrc;
+        });
+      });
+
+      // Prevent form submission (for demonstration)
+      document
+        .getElementById("profileEditForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          // Here you can handle form submission, such as sending data to the server
+          // For now, we'll just hide the edit form after submission
+          editForm.style.display = "none";
+          // Show the edit profile button again
+          editProfileBtn.style.display = "block";
+        });
+    </script>
+  </body>
+</html>
