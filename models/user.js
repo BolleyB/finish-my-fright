@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const profileSchema = new Schema({
   displayName: String,
   aboutMe: String,
+  displayEmail: String,
 }, {
   timestamps: true
 })
@@ -26,7 +27,7 @@ const userSchema = new Schema({
   },
   email: String,
   avatar: String,
-  profile: [profileSchema],
+  profile: profileSchema,
   interaction: [interactionSchema]
 }, {
   timestamps: true

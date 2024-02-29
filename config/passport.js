@@ -1,6 +1,7 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const User = require('../models/user');
+const { default: test } = require('node:test');
 
 passport.use(new GoogleStrategy(
     {
@@ -17,7 +18,12 @@ passport.use(new GoogleStrategy(
                 name: profile.displayName,
                 googleId: profile.id,
                 email: profile.emails[0].value,
-                avatar: profile.photos[0].value
+                avatar: profile.photos[0].value,
+                profile: {
+                    displayName: profile.displayName,
+                    aboutMe: 'About Me',
+                    displayEmail: profile.emails[0].value,
+                },
             });
             return cb(null,user);
         }   catch (err) {
