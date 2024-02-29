@@ -9,15 +9,24 @@
     <div class="card">
       <div class="card-header">
         <img
-          src="https://pbs.twimg.com/media/F6WaQSOXwAA3Q-E.jpg"
+          src="<%= profUser.avatar %>"
           alt="Profile Image"
           class="profile-img"
         />
       </div>
       <div class="card-body">
-        <p class="name">Your Name</p>
-        <a href="#" class="mail">yourname@amail.com</a>
-        <p class="About Me">I like Turtles....</p>
+        <% if(profUser.profile.displayName) {%>
+        <p class="name"><%= profUser.profile.displayName %></p>
+        <% } else {%>
+        <p class="name"><%= profUser.name %></p>
+        <% } %>
+        <a href="#" class="mail"><%= profUser.email %></a>
+        <% if(profUser.profile.aboutMe) {%>
+        <p class="About Me"><%= profUser.profile.aboutMe %></p>
+        <% } else { %>
+            <!-- CURRENTLY FILLER TEXT-->
+            <p class="About Me">I like Turtles....</p>
+        <% } %>
       </div>
 
       <div class="social-links">
