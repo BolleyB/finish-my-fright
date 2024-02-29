@@ -6,6 +6,7 @@ module.exports = {
     showOne,
     showAll,
     redirect,
+    update
 }
 
 async function index(req, res) {
@@ -49,4 +50,30 @@ async function showOne(req, res) {
 // SHOW ALL IS FOR ALL PROFILES
 async function showAll(req, res) {
     res.render(`userProfiles/index`, {title: 'All User Profiles'})
+}
+
+async function update(req, res) {
+    try {
+        const updateFields = {};
+        
+        if (req.body.displayName) {
+            updateFields['profile.displayName'] = req.body.displayName;
+        }
+        if (req.body.displayEmail) {
+            updateFields['profile.email'] = req.body.displayEmail;
+        }
+        if (req.body.aboutMe) {
+            updateFields['profile.aboutMe'] = req.body.aboutMe;
+        }
+
+        const updatedUser = await User.findByIdAndUpdate(
+            req.user.id,
+            { $set: updateFields },
+            { new: true }
+        );
+
+        res.render('userProfiles/profile', { profUser: updatedUser });
+    } catch (err) {
+        console.log(err);
+    }
 }
