@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const profileSchema = new Schema({
-  userName: String,
+  displayName: String,
   aboutMe: String,
 }, {
   timestamps: true
