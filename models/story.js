@@ -11,8 +11,6 @@ const chapterSchema = new Schema({
         ref: 'User',
         required: true
       },
-    // Doesn't need to ref to story, will embed
-    // users id saved as ref
 }, {
     timestamps: true
 })
@@ -27,7 +25,6 @@ const commentSchema = new Schema({
         ref: 'User',
         required: true
       },
-    //users id saved as ref
 }, {
     timestamps: true
 })
@@ -51,10 +48,6 @@ const storySchema = new Schema({
         ref: 'User',
         required: true
       },
-    // Ref: Chapters as an array?
-    // Ref: User ID Reference
-    // Time Created
-    // Themes
 }, {
     timestamps: true
 })
