@@ -1,0 +1,85 @@
+/* Story Info */
+* {
+  font-family: "Melted Monster", sans-serif;
+}
+
+.story-info {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.author-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.author-name {
+  margin: 0;
+}
+
+.theme {
+  margin: 0;
+}
+
+/* Table Styling */
+.story-table,
+.chapters-table,
+.comments-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.story-table th,
+.story-table td,
+.chapters-table th,
+.chapters-table td,
+.comments-table th,
+.comments-table td {
+  font-size: 23px;
+  border: none;
+  padding: 50px;
+  text-align: center;
+}
+
+.story-table th,
+.chapters-table th,
+.comments-table th {
+  background-color: transparent;
+}
+
+body {
+  font-family: "Montserrat";
+  background-image: url("https://www.clker.com/cliparts/w/Q/t/K/F/W/scroll-vertical-md.png");
+  background-size: cover; /* Cover the entire background */
+  background-position: center; /* Center the background image */
+  color: #020000;
+}
+
+.continue {
+  text-align: center; /* Center the "Continue the Story" heading */
+}
+
+.comments {
+  text-align: center; /* Center the "Comments" heading */
+}
+
+.add-chapter-form {
+  text-align: center; /* Center align the form elements */
+}
+
+.add-chapter-form label {
+  display: block; /* Ensure the label occupies the full width */
+  margin-bottom: 10px; /* Add some space below the label */
+}
+
+h2 {
+  text-align: center; /* Center align the header */
+  font-size: 37px;
+}
+
+h5 {
+  font-size: 27px;
+}

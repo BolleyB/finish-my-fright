@@ -1,113 +1,126 @@
 <%- include('../partials/header') %>
-<link rel="stylesheet" href="/stylesheets/show.css"> <!-- Include CSS file for story show styling -->
-<h2>Story Info</h2>
-<table>
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Theme</th>
-            <th>Body</th>
-            <th>Date</th>
-            <th>Author</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><%= story.title%></td>
-            <td><%= story.theme%></td>
-            <td><%= story.body%></td>
-            <td><%= story.createdAt.toLocaleDateString()%></td>
-            <td><%= story.user %></td>
-        </tr>
-        <tr>
-            <td colspan="4">
-              <!-- ONLY RENDERS IF USER IS OWNER OF STORY OR ORIGINAL POSTER -->
-              <% if (user) { %>
-                <% if (user._id.equals(story.user)) { %>
-                <form action="/stories/<%= story._id %>/edit" method="GET">
-                    <button type="submit">Edit Story</button>
-                </form>
-                <% } else {}}%>
-            </td>
-        </tr>
-    </tbody>
+<link rel="stylesheet" href="/stylesheets/storyShow.css" />
+
+<div class="story-info">
+  <h2>Story Info</h2>
+  <div class="author-info">
+    <p class="author-name">Author: <%= story.user %></p>
+    <p class="theme">Theme: <%= story.theme %></p>
+  </div>
+</div>
+
+<table class="story-table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= story.title %></td>
+      <td><%= story.body %></td>
+      <td><%= story.createdAt.toLocaleDateString() %></td>
+    </tr>
+  </tbody>
 </table>
-<br><br><h2>Chapters</h2>
+
+<h2>Chapters</h2>
 <% if (story.chapters.length) { %>
-    <table>
-        <thead>
-          <tr>
-            <th>Chapter</th>
-            <th>Content</th>
-          </tr>
-        </thead>
-        <tbody>
-        <% let counter = 1 %>
-          <% story.chapters.forEach(function(c) { %>
-            
-            <tr>
-              <td><%= counter %></td>
-              <td><%= c.body %></td>
-              <td>
-                <!-- ONLY RENDERS IF USER IS OWNER OF STORY OR ORIGINAL POSTER -->
-              <% if (user) { %>
-              <% if (user._id.equals(c.user) || user._id.equals(story.user)) { %>
-                <form action="/stories/<%= story._id %>/chapters/<%= c._id %>?_method=DELETE" method="POST">
-                    <button type="submit">X</button>
-                </form>
-                <% } else { %>
-              </td>
-              <% }} %>
-              <% counter++ %>
-            </tr>
-          <% }); %>
-        </tbody>
-      </table>
-      <% } else { %>
-        <h5>No Chapters Yet</h5>  
-      <% } %>
-<h2>Continue The Story...</h2>
-<form method="POST" action="/stories/<%= story._id %>/chapters">
-    <label>Content:
-        <input type="string" name="body">
-    </label>
-    <input type="submit" value="Add Chapter">
+<table class="chapters-table">
+  <thead>
+    <tr>
+      <th>Chapter</th>
+      <th>Content</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% let counter = 1 %> <% story.chapters.forEach(function(c) { %>
+
+    <tr>
+      <td><%= counter %></td>
+      <td><%= c.body %></td>
+      <td>
+        <!-- ONLY RENDERS IF USER IS OWNER OF STORY OR ORIGINAL POSTER -->
+        <% if (user) { %> <% if (user._id.equals(c.user) ||
+        user._id.equals(story.user)) { %>
+        <form
+          action="/stories/<%= story._id %>/chapters/<%= c._id %>?_method=DELETE"
+          method="POST"
+        >
+          <button type="submit">Delete</button>
+        </form>
+        <% } %> <% } %>
+      </td>
+    </tr>
+    <% counter++ %> <% }); %>
+  </tbody>
+</table>
+<% } else { %>
+<h5>No Chapters Yet</h5>
+<% } %>
+
+<h2 class="continue">Continue The Story...</h2>
+<form
+  method="POST"
+  action="/stories/<%= story._id %>/chapters"
+  class="add-chapter-form"
+>
+  <label
+    >Content:
+    <input type="string" name="body" />
+  </label>
+  <input type="submit" value="Add Chapter" />
 </form>
+
 <h2>Comments</h2>
 <% if (story.comments.length) { %>
-    <table>
-        <thead>
-          <tr>
-            <th>Comment</th>
-            <th>Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% story.comments.forEach(function(cmt) { %>
-            
-            <tr>
-              <td><%= cmt.body %></td>
-              <td><%= cmt.createdAt.toLocaleDateString() %></td>
-              <td>
-              <!-- ONLY RENDERS IF USER IS OWNER OF STORY OR ORIGINAL POSTER -->
-              <% if (user) { %>
-              <% if (user._id.equals(cmt.user) || user._id.equals(story.user)) { %>
-                <form action="/stories/<%= story._id %>/comments/<%= cmt._id %>?_method=DELETE" method="POST">
-                    <button type="submit">X</button>
-                </form>
-              <% } else {}} %>
-              </td>
-            </tr>
-          <% }); %>
-        </tbody>
-      </table>
-      <% } else { %>
-        <h5>No Comments Yet</h5>  
-      <% } %>
-<form method="POST" action="/stories/<%= story._id %>/comments">
-    <label>Content:
-        <input type="string" name="body">
-    </label>
-    <input type="submit" value="Submit">
+<table class="comments-table">
+  <thead>
+    <tr>
+      <th>Comment</th>
+      <th>Date</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% story.comments.forEach(function(cmt) { %>
+
+    <tr>
+      <td><%= cmt.body %></td>
+      <td><%= cmt.createdAt.toLocaleDateString() %></td>
+      <td>
+        <!-- ONLY RENDERS IF USER IS OWNER OF STORY OR ORIGINAL POSTER -->
+        <% if (user) { %> <% if (user._id.equals(cmt.user) ||
+        user._id.equals(story.user)) { %>
+        <form
+          action="/stories/<%= story._id %>/comments/<%= cmt._id %>?_method=DELETE"
+          method="POST"
+        >
+          <button type="submit">Delete</button>
+        </form>
+        <% } %> <% } %>
+      </td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>
+<% } else { %>
+<h5>No Comments Yet</h5>
+<% } %>
+
+<form
+  method="POST"
+  action="/stories/<%= story._id %>/comments"
+  class="add-comment-form"
+>
+  <label
+    >Content:
+    <input type="string" name="body" />
+  </label>
+  <input type="submit" value="Submit" />
 </form>
+
 <%- include('../partials/footer') %>
