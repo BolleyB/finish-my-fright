@@ -13,13 +13,12 @@ async function index(req, res) {
     res.render('user', {title: 'User Login'});
 }
 
-// HOW TO ACCESS USER ID TO REDIRECT TO SPECIFIC USER ?
 async function redirect(req, res) {
-    try { const userId = req.user ? req.user.id : undefined
-        console.log(userId);
+    try { 
+        const userId = req.user ? req.user.id : undefined
         if (!userId)
         {
-            res.redirect('/users/all');
+            await res.redirect('/users/all');
         }
         else {
             await res.redirect(`/users/${userId}`)
@@ -49,7 +48,7 @@ async function showOne(req, res) {
 
 // SHOW ALL IS FOR ALL PROFILES
 async function showAll(req, res) {
-    res.render(`userProfiles/index`, {title: 'All User Profiles'})
+    res.render(`userProfiles/index`)
 }
 
 async function update(req, res) {
@@ -72,7 +71,7 @@ async function update(req, res) {
             { new: true }
         );
 
-        res.render('userProfiles/profile', { profUser: updatedUser });
+        await res.redirect(`/users/${updatedUser.id}`)
     } catch (err) {
         console.log(err);
     }
