@@ -45,7 +45,7 @@ async function deleteChapter(req, res) {
 
   async function updateUser(id, chapterId) {
     try {
-        await User.updateOne({ _id: id }, { $push: { 'interaction': { chapters: chapterId } } });
+        await User.updateOne({ _id: id }, { $push: { interaction: { chapters: chapterId } } });
     }
     catch (err) {
         console.log(err)
