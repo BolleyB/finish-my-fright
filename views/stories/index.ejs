@@ -1,37 +1,35 @@
 <%- include('../partials/header') %>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Story List</title>
-    <link rel="stylesheet" href="/stylesheets/storyList.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Story List</title>
+  <link rel="stylesheet" href="/stylesheets/storyList.css" />
 </head>
 <body>
-    <!-- Container for the story list -->
-    <div class="container">
-        <h2>STORY LIST</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% if (stories.length) { %>
-                    <% stories.forEach(function(s) { %>
-                        <tr>
-                            <td><%= s.title %></td>
-                            <td><a href="/stories/<%= s._id %>">Read Story</a></td>
-                        </tr>
-                    <% }) %>
-                <% } else { %>
-                    <tr>
-                        <td colspan="2">No Stories Yet</td>
-                    </tr>
-                <% }; %>
-            </tbody>
-        </table>
-    </div>
-    <!-- Footer content -->
-    <%- include('../partials/footer') %>
+  <!-- Container for the story list -->
+  <div class="container">
+    <h2>STORY LIST</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>View</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (stories.length) { %> <% stories.forEach(function(s) { %>
+        <tr>
+          <td><%= s.title %></td>
+          <td><a href="/stories/<%= s._id %>">Read Story</a></td>
+        </tr>
+        <% }) %> <% } else { %>
+        <tr>
+          <td colspan="2">No Stories Yet</td>
+        </tr>
+        <% }; %>
+      </tbody>
+    </table>
+  </div>
+  <!-- Footer content -->
+  <%- include('../partials/footer') %>
 </body>

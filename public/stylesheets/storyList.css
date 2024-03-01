@@ -1,57 +1,73 @@
 /* Body styles */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-image: url('/images/BloodyHandprints.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 100vh; /* Ensure background covers the entire viewport */
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-image: url("https://nypost.com/wp-content/uploads/sites/2/2018/07/180726-blood-moon-history-01.jpg?quality=75&strip=all");
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* Ensure background covers the entire viewport */
 }
 
 /* Container styles */
 .container {
-    width: 50%; /* Adjust as needed */
-    margin: auto; /* Center the container horizontally */
-    padding: 20px;
-    background-color: rgba(54, 10, 10, 0.8); /* Semi-transparent white background */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Drop shadow */
-    position: absolute; /* Position the container */
-    top: 50%; /* Place the top edge of the container at the vertical center of the viewport */
-    left: 50%; /* Place the left edge of the container at the horizontal center of the viewport */
-    transform: translate(-50%, -50%); /* Move the container back by half of its own width and height */
-    color: #fff; /* Text color */
-    font-family: 'Melted Monster', sans-serif; /* Specify the font family */
+  width: 50%; /* Adjust as needed */
+  margin: auto; /* Center the container horizontally */
+  padding: 20px;
+  background-color: rgba(
+    54,
+    10,
+    10,
+    0.8
+  ); /* Semi-transparent white background */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Drop shadow */
+  position: absolute; /* Position the container */
+  top: 50%; /* Place the top edge of the container at the vertical center of the viewport */
+  left: 50%; /* Place the left edge of the container at the horizontal center of the viewport */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Move the container back by half of its own width and height */
+  color: #b63c3c; /* Text color */
+  font-family: "Melted Monster", sans-serif; /* Specify the font family */
+  text-align: center;
+  justify-content: center;
 }
 
 /* Story list title */
 h2 {
-    color: #fff; /* Change to your desired color */
+  color: #f80202; /* Change to your desired color */
+  text-align: center;
 }
 
 /* Text color for stories */
 .container td {
-    color: #e5d418; /* Change to your desired color */
+  color: #e5d418; /* Change to your desired color */
 }
 
 /* Link color for "Read Story" */
 .container a {
-    color: #00ff00; /* Change to your desired color */
+  color: #00ff00; /* Change to your desired color */
 }
 
 /* Hover color for "Read Story" */
 .container a:hover {
-    color: #ff00ff; /* Change to your desired color */
+  color: #ff00ff; /* Change to your desired color */
 }
 
 /* Add spacing between table cells */
 .container td {
-    padding: 10px; /* Adjust the padding as needed */
-    text-align: left; /* Align text in table cells */
+  padding: 10px; /* Adjust the padding as needed */
+  text-align: left; /* Align text in table cells */
 }
 
 /* Font styles for navigation links */
 .topnav a {
-    font-family: 'Melted Monster', sans-serif; /* Specify the font family */
+  font-family: "Melted Monster", sans-serif; /* Specify the font family */
+}
+
+.story-info {
+  justify-content: center;
+  text-align: center;
 }
