@@ -30,17 +30,17 @@
         <% } %>
       </div>
       <div>
+          <% if (userStories.length >= 1) { %>
         <div class="dropdown">
             <span>Check Out My Stories</span>
             <div class="dropdown-content">
-            <p>story1</p>
-            <p>story2</p>
-            <p>story3</p>
-            <p>story4</p>
-            <p>story5</p>
-            <p>story6</p>
-          </div>
-        </div>
+                  <% userStories.forEach((story) => { %>
+                    <a href="/stories/<%=story.id%>"><%= story.title %></a>
+                  <% }); %>
+                </div>
+            </div>
+            <% } else { %>
+            <span>This User Has No Stories</span><% } %>
       </div>
 
       <div class="social-links">
@@ -54,6 +54,7 @@
         <p class="count">
           <span>120k</span> Followers | <span>10k</span> Following
         </p>
+        <% if (user) { %>
         <% if (user._id.equals(profUser.id)) { %>
         <!-- Profile edit button -->
         <button id="editProfileBtn">Edit Profile</button>
@@ -98,7 +99,7 @@
             />
             
             <button type="submit">Save Changes</button>
-            <% } %>
+            <% }} %>
           </form>
         </div>
       </div>

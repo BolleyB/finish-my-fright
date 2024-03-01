@@ -25,7 +25,9 @@ passport.use(new GoogleStrategy(
                     displayEmail: profile.emails[0].value,
                 },
                 interaction: {
-                }
+                },
+                stories: {
+                },
             });
             return cb(null,user);
         }   catch (err) {

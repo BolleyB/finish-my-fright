@@ -45,10 +45,11 @@ async function deleteComment(req, res) {
 
   async function updateUser(id, commentId) {
     try {
-        // SET WORKS, BUT PUSH DOES NOTHING
-        await User.updateOne({ _id: id }, { $push: { interaction: commentId } })
+    const user = await User.findById(id);
+    user.interaction.comments.push(commentId);
+    await user.save();
     }
     catch (err) {
-        console.log(err)
+        console.log(err);
     }
 }

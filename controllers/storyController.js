@@ -37,7 +37,8 @@ async function create(req, res) {
 async function show(req, res) {
     try {
         const story = await Story.findById(req.params.id);
-        res.render('stories/show', { title: 'Story Details', story})
+        const author = await User.findById(story.user);
+        res.render('stories/show', { title: 'Story Details', story, author})
     } catch (err) {
         console.log(err);
         res.redirect('/stories');
@@ -61,11 +62,14 @@ async function update(req, res) {
     }
 }
 
+// WORKS NEED TO ADD TO COMMENTS AND CHAPTERS
 async function updateUser(id, storyId) {
-        try {
-            await User.interaction.updateOne({ _id: id }, { $push: { stories: storyId } });
-        }
-        catch (err) {
-            console.log(err)
-        }
+    try {
+    const user = await User.findById(id);
+    user.interaction.stories.push(storyId);
+    await user.save();
     }
+    catch (err) {
+        console.log(err);
+    }
+}
