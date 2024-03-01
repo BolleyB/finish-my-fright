@@ -1,6 +1,6 @@
 // Get the edit form and edit profile button
-var editForm = document.getElementById("editForm");
-var editProfileBtn = document.getElementById("editProfileBtn");
+const editForm = document.getElementById("editForm");
+const editProfileBtn = document.getElementById("editProfileBtn");
 
 // Add event listener to the edit profile button
 editProfileBtn.addEventListener("click", function () {

@@ -115,11 +115,11 @@
       });
 
       // Preset photo selection
-      var presetPhotos = document.querySelectorAll(".preset-photo");
+      const presetPhotos = document.querySelectorAll(".preset-photo");
       presetPhotos.forEach(function (photo) {
         photo.addEventListener("click", function () {
           // Set the selected photo as the value of the editPhoto input field
-          var selectedPhotoSrc = this.getAttribute("data-src");
+          const selectedPhotoSrc = this.getAttribute("data-src");
           document.getElementById("editPhoto").value = selectedPhotoSrc;
         });
       });
