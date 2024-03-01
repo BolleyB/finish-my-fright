@@ -1,3 +1,15 @@
 <%- include('../partials/header') %>
 <h2>All Users</h2>
+<% if (users.length) { %>
+    <ul>
+        <% users.forEach(function(u) { %>
+            <li>
+                <a><%= u.profile.displayName %></a>
+                <a href="/users/<%= u._id %>">View Profile</a>
+            </li>
+        <% }) %>
+    </ul>
+<% } else { %>
+    <p>No Profiles Yet</p>
+<% } %>
 <%- include('../partials/footer') %>

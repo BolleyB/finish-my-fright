@@ -31,7 +31,6 @@ async function redirect(req, res) {
 
 async function showOne(req, res) {
     try {
-        const stories = await Story.find({});
         const userStories = [];
         const userId = req.params.id ? req.params.id : undefined;
 
@@ -58,7 +57,8 @@ async function showOne(req, res) {
 
 // SHOW ALL IS FOR ALL PROFILES
 async function showAll(req, res) {
-    res.render(`userProfiles/index`)
+    const users = await User.find({});
+    res.render(`userProfiles/index`, {users})
 }
 
 async function update(req, res) {
