@@ -54,6 +54,7 @@
         <p class="count">
           <span>120k</span> Followers | <span>10k</span> Following
         </p>
+        <% if (user) { %>
         <% if (user._id.equals(profUser.id)) { %>
         <!-- Profile edit button -->
         <button id="editProfileBtn">Edit Profile</button>
@@ -98,7 +99,7 @@
             />
             
             <button type="submit">Save Changes</button>
-            <% } %>
+            <% }} %>
           </form>
         </div>
       </div>
