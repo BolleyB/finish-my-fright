@@ -37,7 +37,8 @@ async function create(req, res) {
 async function show(req, res) {
     try {
         const story = await Story.findById(req.params.id);
-        res.render('stories/show', { title: 'Story Details', story})
+        const author = await User.findById(story.user);
+        res.render('stories/show', { title: 'Story Details', story, author})
     } catch (err) {
         console.log(err);
         res.redirect('/stories');
