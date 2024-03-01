@@ -7,7 +7,8 @@ module.exports = {
     create,
     show,
     edit,
-    update
+    update,
+    delete: deleteStory
 }
 
 async function index(req, res) {
@@ -62,7 +63,6 @@ async function update(req, res) {
     }
 }
 
-// WORKS NEED TO ADD TO COMMENTS AND CHAPTERS
 async function updateUser(id, storyId) {
     try {
     const user = await User.findById(id);
@@ -72,4 +72,28 @@ async function updateUser(id, storyId) {
     catch (err) {
         console.log(err);
     }
+}
+
+async function deleteStory(req, res) {
+    try {
+        // Need to add the user check
+        const story = await Story.findById(req.params.id);
+        const userToUpdate = await User.findById(story.user)
+    
+        if (!story) return res.redirect('/story');
+
+        await User.findByIdAndUpdate(story.user, {
+            $pull: { 'interaction.stories': req.params.id }
+        });
+        
+        await Story.findByIdAndDelete(req.params.id);
+
+        await userToUpdate.save();
+        
+        res.redirect(`/stories`);
+        }
+        catch (err) { 
+            console.log(err);
+            res.redirect(`/stories/${req.params.id}`);
+        }
 }
