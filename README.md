@@ -7,3 +7,14 @@ As a guest user, you have access to a plethora of user-made scary stories, each 
 But the fright doesn't end there. At *Finish My Fright*, we encourage creativity and collaboration. Users can rate stories, share their thoughts through comments, and immerse themselves in the eerie narratives that unfold online. Whether you're a seasoned storyteller or a horror enthusiast looking for your next thrill, **Finish My Fright** is the place to be.
 
 So, join us if you dare, and prepare to lose yourself in a world of endless frights and hair-raising adventures. Your next nightmare awaits at **Finish My Fright**.
+
+## Screenshots
+![Screenshot 1](public/images/homefright.png)
+![Screenshot 2](public/images/createfright.png)
+![Screenshot 2](public/images/storiesfright.png)
+![Screenshot 2](public/images/profilepage.png)
+![Screenshot 2](public/images/storypage.png)
+<!-- Add more screenshots as needed -->
+
+## Deployment
+This project is deployed on Heroku. You can access it [here](https://finishmyfright-b79c5c374288.herokuapp.com/).
