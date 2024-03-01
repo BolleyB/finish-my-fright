@@ -17,4 +17,4 @@ So, join us if you dare, and prepare to lose yourself in a world of endless frig
 <!-- Add more screenshots as needed -->
 
 ## Deployment
-This project is deployed on Heroku. You can access it [here](heroku_app_link).
+This project is deployed on Heroku. You can access it [here](https://finishmyfright-b79c5c374288.herokuapp.com/).
