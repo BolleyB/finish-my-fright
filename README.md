@@ -17,7 +17,7 @@ So, join us if you dare, and prepare to lose yourself in a world of endless frig
 <!-- Add more screenshots as needed -->
 
 ## Join us at 
-### Finish-My-Fright [here](https://finishmyfright-b79c5c374288.herokuapp.com/).
+### Finish-My-Fright [here](https://finishmyfright-b79c5c374288.herokuapp.com
 
 
 ## Tech Used 
