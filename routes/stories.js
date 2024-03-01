@@ -22,4 +22,7 @@ router.post('/', ensureLoggedIn, storiesCtrl.create);
 // PUT FOR UPDATING STORY
 router.put('/:id', ensureLoggedIn, storiesCtrl.update);
 
+// DELETE FOR DELETING STORY
+router.delete('/:id', ensureLoggedIn, storiesCtrl.delete);
+
 module.exports = router;
