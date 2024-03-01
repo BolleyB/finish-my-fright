@@ -30,17 +30,17 @@
         <% } %>
       </div>
       <div>
+          <% if (userStories.length >= 1) { %>
         <div class="dropdown">
             <span>Check Out My Stories</span>
             <div class="dropdown-content">
-            <p>story1</p>
-            <p>story2</p>
-            <p>story3</p>
-            <p>story4</p>
-            <p>story5</p>
-            <p>story6</p>
-          </div>
-        </div>
+                  <% userStories.forEach((story) => { %>
+                    <p><%= story.title %></p>
+                  <% }); %>
+                </div>
+            </div>
+            <% } else { %>
+            <span>This User Has No Stories</span><% } %>
       </div>
 
       <div class="social-links">

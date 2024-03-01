@@ -61,11 +61,14 @@ async function update(req, res) {
     }
 }
 
+// WORKS NEED TO ADD TO COMMENTS AND CHAPTERS
 async function updateUser(id, storyId) {
-        try {
-            await User.interaction.updateOne({ _id: id }, { $push: { stories: storyId } });
-        }
-        catch (err) {
-            console.log(err)
-        }
+    try {
+    const user = await User.findById(id);
+    user.interaction.stories.push(storyId);
+    await user.save();
     }
+    catch (err) {
+        console.log(err);
+    }
+}
