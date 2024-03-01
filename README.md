@@ -18,3 +18,36 @@ So, join us if you dare, and prepare to lose yourself in a world of endless frig
 
 ## Join us at 
 ### Finish-My-Fright [here](https://finishmyfright-b79c5c374288.herokuapp.com/).
+
+
+## Tech Used 
+### Programming Languages:
+-JavaScript
+### Web Development:
+-HTML
+-CSS
+-EJS
+### Server-side Development:
+-Node.js
+-Express
+-MongoDB
+-Mongoose
+### Deployment and Hosting:
+-Heroku
+-Package Management:
+-npm
+### Version Control:
+-Git
+-Authentication:
+-Google OAuth
+### Front-end Framework:
+-Bootstrap
+
+## Ref
+-Stack Overflow
+- ['W3 Schools'](https://www.w3schools.com/graphics/default.asp)
+- ['mdn'](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
+- ['Stack Overflow'](https://stackoverflow.com/questions/tagged/controller)
+
+#### Trello Proj Planner
+['Trello'](https://trello.com/b/3smybuWL/project-2)
