@@ -9,8 +9,11 @@ But the fright doesn't end there. At *Finish My Fright*, we encourage creativity
 So, join us if you dare, and prepare to lose yourself in a world of endless frights and hair-raising adventures. Your next nightmare awaits at **Finish My Fright**.
 
 ## Screenshots
-![Screenshot 1](l/home/roguione/SEI-GIT/projects/finish-my-fright/public/images/create page fright.png)
-![Screenshot 2](link_to_screenshot_2)
+![Screenshot 1](images/homefright.png)
+![Screenshot 2](images/createfright.png)
+![Screenshot 2](images/storiesfright.png)
+![Screenshot 2](images/profilepage.png)
+![Screenshot 2](images/storypage.png)
 <!-- Add more screenshots as needed -->
 
 ## Deployment
