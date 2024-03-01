@@ -35,7 +35,7 @@
             <span>Check Out My Stories</span>
             <div class="dropdown-content">
                   <% userStories.forEach((story) => { %>
-                    <p><%= story.title %></p>
+                    <a href="/stories/<%=story.id%>"><%= story.title %></a>
                   <% }); %>
                 </div>
             </div>
