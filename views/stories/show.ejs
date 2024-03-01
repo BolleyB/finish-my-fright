@@ -92,16 +92,14 @@
       <td><%= cmt.body %></td>
       <td><%= cmt.createdAt.toLocaleDateString() %></td>
       <td>
-        <!-- ONLY RENDERS IF USER IS OWNER OF STORY OR ORIGINAL POSTER -->
-        <% if (user) { %> <% if (user._id.equals(cmt.user) ||
-        user._id.equals(story.user)) { %>
+        <% if (user) { %> <% if (user._id.equals(cmt.user) || user._id.equals(story.user)) { %>
         <form
           action="/stories/<%= story._id %>/comments/<%= cmt._id %>?_method=DELETE"
           method="POST"
         >
           <button type="submit">Delete</button>
         </form>
-        <% } %> <% } %>
+        <% }} %>
       </td>
     </tr>
     <% }); %>

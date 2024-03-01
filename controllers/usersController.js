@@ -31,15 +31,25 @@ async function redirect(req, res) {
 
 async function showOne(req, res) {
     try {
-        const userId = req.params.id ? req.params.id : undefined
-        if (!userId)
-        {
-            res.redirect('/users/all');
-        }
-        else {
-        const profUser = await User.findById(userId);
-        console.log()
-        res.render(`userProfiles/profile`, {profUser})
+        const stories = await Story.find({});
+        const userStories = [];
+        const userId = req.params.id ? req.params.id : undefined;
+
+        if (!userId) {
+            return res.redirect('/users/all');
+        } else {
+            const profUser = await User.findById(userId);
+
+            if (profUser.interaction.stories) {
+                // Use for...of loop with async/await for asynchronous calls
+                for (const id of profUser.interaction.stories) {
+                    const storyToAdd = await Story.findById(id);
+                    userStories.push(storyToAdd);
+                }
+                console.log(userStories.map(story => story.title)); // Logging titles of stories
+            }
+
+            res.render(`userProfiles/profile`, { profUser, userStories });
         }
     } catch (err) {
         console.log(err);
